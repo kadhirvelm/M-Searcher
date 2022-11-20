@@ -1,0 +1,52 @@
+{
+    "name": "@minecraft/frontend",
+    "version": "1.0.0",
+    "private": true,
+    "dependencies": {
+        "@ant-design/icons": "^4.6.2",
+        "@minecraft/api": "1.0.0",
+        "antd": "^4.16.10",
+        "node-sass": "^6.0.1",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2",
+        "react-scripts": "4.0.3",
+        "typescript": "^4.3.5"
+    },
+    "scripts": {
+        "analyze": "yarn run build -- --stats && npx webpack-bundle-analyzer ./build/bundle-stats.json",
+        "build": "rm -rf compiled_types && GENERATE_SOURCEMAP=false react-app-rewired build",
+        "dev": "react-app-rewired start",
+        "lint": "yarn lint:code && yarn lint:styles",
+        "lint:code": "eslint . --ext .ts,.tsx --cache",
+        "lint:styles": "yarn stylelint '**/*.scss'",
+        "lint:fix": "yarn lint:code --fix && yarn lint:styles --fix",
+        "test": "react-app-rewired test --passWithNoTests"
+    },
+    "devDependencies": {
+        "@testing-library/jest-dom": "^5.11.4",
+        "@testing-library/react": "^12.0.0",
+        "@testing-library/user-event": "^13.2.1",
+        "@types/jest": "^26.0.15",
+        "@types/node": "^16.4.10",
+        "@types/react": "^17.0.0",
+        "@types/react-dom": "^17.0.0",
+        "@sample/scss-modules": "1.0.0",
+        "customize-cra": "^1.0.0",
+        "react-app-rewired": "^2.1.8",
+        "stylelint": "^13.13.1",
+        "stylelint-config-sass-guidelines": "^8.0.0",
+        "stylelint-order": "^4.1.0"
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    }
+}
