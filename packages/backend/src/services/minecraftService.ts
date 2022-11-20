@@ -6,9 +6,9 @@ const MINECRAFT_DATA = minecraft("1.19");
 export function searchRecipes(
     payload: IMinecraftSearchService["searchRecipes"]["payload"],
 ): Promise<IMinecraftSearchService["searchRecipes"]["response"]> {
-    console.log(MINECRAFT_DATA.recipes[1]);
+    console.log(MINECRAFT_DATA.recipes[2], payload.searchText);
 
     return new Promise((resolve) => {
-        resolve(payload);
+        resolve(payload.searchText);
     });
 }

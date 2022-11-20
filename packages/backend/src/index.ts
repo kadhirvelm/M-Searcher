@@ -19,16 +19,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 configureSecurity(app);
 configureAllRoutes(app);
 
-if (ORIGIN !== undefined) {
-    // DEVELOPMENT
-    server.listen(PORT as unknown as number | undefined, ORIGIN, () => {
-        // eslint-disable-next-line no-console
-        console.log({ level: "info", message: `Server started, listening on http://${ORIGIN ?? ""}:${PORT ?? ""}` });
-    });
-} else {
-    // PRODUCTION
-    server.listen(PORT || 3000, () => {
-        // eslint-disable-next-line no-console
-        console.log({ level: "info", message: `Server started, listening on ${PORT ?? ""}` });
-    });
-}
+server.listen(3001, () => {
+    // eslint-disable-next-line no-console
+    console.log({ level: "info", message: `Server started, listening on http://localhost:3001` });
+});

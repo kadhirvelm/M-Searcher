@@ -70,6 +70,7 @@ function implementBackend<Service extends IService>(endpoints: IImplementEndpoin
                     const accountIdFromToken = request.body[STORE_TOKEN_KEY] as IAccountId | null;
 
                     const responseData = await backendImplementedEndpoints[key](payload, response, accountIdFromToken);
+                    console.log({ responseData });
                     if (responseData === undefined) {
                         return;
                     }

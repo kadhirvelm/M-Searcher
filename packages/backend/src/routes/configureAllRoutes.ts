@@ -6,9 +6,13 @@ import { configureFrontendRoutes } from "./configureFrontendRoutes";
 const mockCheck = () => null;
 
 export function configureAllRoutes(app: Express.Express) {
-    configureFrontendRoutes(app);
+    app.get("/status", (request, response) => {
+        response.status(200).send({ message: "Success!" });
+    })
 
     MinecraftServiceBackend(app, mockCheck, {
         searchRecipes,
     });
+
+    configureFrontendRoutes(app);
 }

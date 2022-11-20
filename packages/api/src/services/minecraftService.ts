@@ -3,7 +3,7 @@ import { implementEndpoints, IService } from "../common/generics";
 export interface IMinecraftSearchService extends IService {
     searchRecipes: {
         payload: {
-            searchText: string;
+            searchText: string
         };
         response: {};
     };

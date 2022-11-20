@@ -6,7 +6,7 @@ module.exports = {
         extraFileExtensions: [".cjs"],
     },
 
-    plugins: ["@typescript-eslint", "jest", "prettier", "import", "react-hooks"],
+    plugins: ["@typescript-eslint", "jest", "import", "react-hooks"],
 
     extends: [
         "airbnb-typescript",
@@ -15,11 +15,9 @@ module.exports = {
         "plugin:import/warnings",
         "plugin:import/typescript",
         "plugin:jest/recommended",
-        "plugin:prettier/recommended",
     ],
 
     rules: {
-        "prettier/prettier": "warn",
         "@typescript-eslint/quotes": ["error", "double"],
         "@typescript-eslint/no-misused-promises": 0,
         "import/prefer-default-export": 0,

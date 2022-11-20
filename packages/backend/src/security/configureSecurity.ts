@@ -7,5 +7,5 @@ const CORS_OPTIONS: cors.CorsOptions = {
 };
 
 export function configureSecurity(app: Express) {
-    app.use(process.env.NODE_ENV === "production" ? cors(CORS_OPTIONS) : cors());
+    app.use(cors());
 }
