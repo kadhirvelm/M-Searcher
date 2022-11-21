@@ -1,4 +1,5 @@
 import { implementEndpoints, IService } from "../common/generics";
+import { IItem, IRecipe } from "./minecraftTypes";
 
 export interface IMinecraftSearchService extends IService {
     searchRecipes: {
@@ -6,8 +7,8 @@ export interface IMinecraftSearchService extends IService {
             searchText: string
         };
         response: {
-            recipes: string[];
-            cssName: string;
+            recipes: IRecipe[]
+            items: IItem[];
         };
     };
 }

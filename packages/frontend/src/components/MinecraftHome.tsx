@@ -1,10 +1,10 @@
-import { MinecraftServiceFrontend } from "@minecraft/api";
+import { IItem, IRecipe, MinecraftServiceFrontend } from "@minecraft/api";
 import * as React from "react";
 import { checkIfError } from "../utils/checkIfError";
 
 export const MinecraftHome: React.FC<{}> = () => {
   const [searchedRecipes, setSearchedRecipes] = React.useState<
-  { cssName: string; recipes: string[] } | undefined>(undefined);
+  { recipes: IRecipe[]; items: IItem[] } | undefined>(undefined);
 
   const loadSearchedRecipes = async () => {
     const loadedRecipes = checkIfError(await MinecraftServiceFrontend.searchRecipes({ searchText: "candle" }));
@@ -22,9 +22,8 @@ export const MinecraftHome: React.FC<{}> = () => {
 
   return (
     <div>
-      Hello world!
-      <i className={`icon-minecraft ${searchedRecipes?.cssName}`} />
       {JSON.stringify(searchedRecipes?.recipes)}
+      {JSON.stringify(searchedRecipes?.items)}
     </div>
   );
 };
