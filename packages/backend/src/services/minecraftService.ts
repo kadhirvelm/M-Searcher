@@ -2,6 +2,7 @@ import { IMinecraftSearchService } from "@minecraft/api";
 import { readFileSync } from 'fs';
 import minecraft from "minecraft-data";
 import { join } from "path";
+import _ from "lodash";
 
 const MINECRAFT_DATA = minecraft("1.19");
 
@@ -37,7 +38,11 @@ const itemToRecipe = () => JSON.parse(readFileSync(join(process.cwd(), "./src/se
 export function searchRecipes(
   payload: IMinecraftSearchService["searchRecipes"]["payload"],
 ): Promise<IMinecraftSearchService["searchRecipes"]["response"]> {
+  console.log("Hello!", payload.searchText)
+  const item = MINECRAFT_DATA.itemsByName[payload.searchText];
   return new Promise((resolve) => {
-    resolve(payload.searchText);
+    const recipes = itemToRecipe()[item.id]
+    const cssName = iconToCssClassName()[_.capitalize(payload.searchText)]
+    resolve({ recipes, cssName });
   });
 }

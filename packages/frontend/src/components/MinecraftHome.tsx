@@ -3,10 +3,11 @@ import * as React from "react";
 import { checkIfError } from "../utils/checkIfError";
 
 export const MinecraftHome: React.FC<{}> = () => {
-  const [searchedRecipes, setSearchedRecipes] = React.useState<{}>();
+  const [searchedRecipes, setSearchedRecipes] = React.useState<
+  { cssName: string; recipes: string[] } | undefined>(undefined);
 
   const loadSearchedRecipes = async () => {
-    const loadedRecipes = checkIfError(await MinecraftServiceFrontend.searchRecipes({ searchText: "sample-text" }));
+    const loadedRecipes = checkIfError(await MinecraftServiceFrontend.searchRecipes({ searchText: "candle" }));
 
     if (loadedRecipes === undefined) {
       return;
@@ -22,8 +23,8 @@ export const MinecraftHome: React.FC<{}> = () => {
   return (
     <div>
       Hello world!
-      <i className="icon-minecraft icon-minecraft-stone" />
-      {JSON.stringify(searchedRecipes)}
+      <i className={`icon-minecraft ${searchedRecipes?.cssName}`} />
+      {JSON.stringify(searchedRecipes?.recipes)}
     </div>
   );
 };

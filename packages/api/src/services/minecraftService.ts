@@ -5,7 +5,10 @@ export interface IMinecraftSearchService extends IService {
         payload: {
             searchText: string
         };
-        response: {};
+        response: {
+            recipes: string[];
+            cssName: string;
+        };
     };
 }
 
