@@ -22,6 +22,7 @@ export const MinecraftHome: React.FC<{}> = () => {
   return (
     <div>
       Hello world!
+      <i className="icon-minecraft icon-minecraft-stone" />
       {JSON.stringify(searchedRecipes)}
     </div>
   );
