@@ -21,7 +21,7 @@
         "start:watch": "nodemon --experimental-modules --experimental-specifier-resolution=node dist/index.js --config=./nodemon.json",
         "profile": "node --experimental-modules --experimental-specifier-resolution=node --prof dist/index.js",
         "clinic": "clinic flame -- node --experimental-modules --experimental-specifier-resolution=node dist/index.js",
-        "dev": "concurrently \"yarn start:watch\" \"yarn build:watch\"",
+        "dev": "npx kill-port 3001 && concurrently \"yarn start:watch\" \"yarn build:watch\"",
         "lint": "eslint . --ext .ts,.tsx --cache",
         "lint:fix": "yarn lint --fix",
         "generate:db": "ts-node --project scripts/tsconfig.json scripts/generate-db.ts",

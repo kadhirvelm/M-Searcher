@@ -7,8 +7,10 @@ export interface IMinecraftSearchService extends IService {
             searchText: string
         };
         response: {
-            recipes: IRecipe[]
-            items: IItem[];
+            rootItemId: number;
+            creationRecipes: IRecipe[];
+            usedInRecipes: IRecipe[]
+            items: { [itemId: string]: IItem };
         };
     };
 }
