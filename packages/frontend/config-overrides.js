@@ -1,7 +1,5 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-const { adjustStyleLoaders, override, addWebpackExternals } = require("customize-cra");
-
-const SAMPLE_SCSS_FILE_NAME = "test.module.scss";
+const { override, addWebpackExternals } = require("customize-cra");
 
 // https://github.com/arackaf/customize-cra/issues/44
 function addEnvVariablesToDefinePlugin(config) {
@@ -23,15 +21,6 @@ function addEnvVariablesToDefinePlugin(config) {
 const noop = (config) => config;
 
 module.exports = override(
-    adjustStyleLoaders((loader) => {
-        if (SAMPLE_SCSS_FILE_NAME.match(loader.test)?.[0] !== ".module.scss") {
-            return;
-        }
-
-        loader.use.splice(1, 0, {
-            loader: require.resolve("@sample/scss-modules"),
-        });
-    }),
     addEnvVariablesToDefinePlugin,
     ...(process.env.NODE_ENV === "production"
         ? [

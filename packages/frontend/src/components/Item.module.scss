@@ -1,0 +1,24 @@
+.itemContainer {
+    display: flex;
+    width: 250px;
+    border-radius: 3px;
+    border: 1px solid black;
+    padding: 10px;
+    background: white;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+.displayName {
+    display: flex;
+    align-items: center;
+}
+
+.id {
+    color: rgba(gray, 0.5);
+    margin-left: 5px;
+}

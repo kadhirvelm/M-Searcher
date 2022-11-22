@@ -3,6 +3,8 @@ import { Input,Button } from "antd";
 import * as React from "react";
 import { checkIfError } from "../utils/checkIfError";
 import { Results } from "./Results";
+import styles from "./Minecraft.module.scss";
+import { SearchOutlined } from "@ant-design/icons";
 
 export const MinecraftHome: React.FC<{}> = () => {
   const [searchedRecipes, setSearchedRecipes] = React.useState<IMinecraftSearchService["searchRecipes"]["response"] | undefined>(undefined);
@@ -43,10 +45,10 @@ export const MinecraftHome: React.FC<{}> = () => {
   }
 
   return (
-    <div>
-      <div onKeyDown={handleEnterEvent}>
+    <div className={styles.overallContainer}>
+      <div className={styles.header} onKeyDown={handleEnterEvent}>
         <Input onChange={onTextInput} />
-        <Button onClick={loadSearchedRecipes}>Search</Button>
+        <Button icon={<SearchOutlined />} onClick={loadSearchedRecipes}>Search</Button>
       </div>
       {maybeRenderResults()}
     </div>

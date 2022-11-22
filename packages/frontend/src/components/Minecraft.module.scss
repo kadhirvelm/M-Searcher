@@ -1,0 +1,16 @@
+.overallContainer {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    margin: 100px auto;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+
+    > :first-child {
+        margin-right: 10px;
+    }
+}
