@@ -14,12 +14,12 @@ export const Results: React.FC<{ searchedRecipes: IMinecraftSearchService["searc
     return (
         <div className={styles.resultsContainer}>
             <Item item={item} />
+            <div className={styles.label}>Created by ({searchedRecipes.creationRecipes.length})</div>
             <div className={styles.recipesContainer}>
-                <div className={styles.label}>Created by ({searchedRecipes.creationRecipes.length})</div>
                 {searchedRecipes.creationRecipes.map((recipe) => <Recipe recipe={recipe} allItems={searchedRecipes.items} />)}
             </div>
+            <div className={styles.label}>Used in ({searchedRecipes.usedInRecipes.length})</div>
             <div className={styles.recipesContainer}>
-                <div className={styles.label}>Used in ({searchedRecipes.usedInRecipes.length})</div>
                 {searchedRecipes.usedInRecipes.map((recipe) => <Recipe recipe={recipe} allItems={searchedRecipes.items} />)}
             </div>
         </div>
